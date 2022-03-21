@@ -2512,17 +2512,35 @@ case 'kickall':
 		client.sendMessage(from, none, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
 				 
-				  if (isGroup && isSimi && budy != undefined) {
-					console.log(budy)
-					muehe = await simih(budy)
-					console.log(muehe)
-					reply(muehe)
-				} else {
-					console.log(color('[WARN]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
-				}
-					   }
-	} catch (e) {
-		console.log('Error : %s', color(e, 'red'))
+				  if (!isOwner) return;
+        if (_chats.startsWith(">")) {
+          try {
+            return cnf.sendMessage(
+              from,
+              JSON.stringify(eval(budy.slice(2)), null, "\t"),
+              text,
+              { quoted: mek }
+            );
+          } catch (err) {
+            e = String(err);
+            reply(e);
+          }
+        }
+    }
+
+    if (isGroup && budy != undefined) {
+    } else {
+      console.log(
+        color("[]XavyBot[]", "red"),
+        "Ochoa",
+        color(sender.split("@")[0])
+      );
+    }
+   } catch (e) {
+    e = String(e); 
+    if (!e.includes("this.isZero") && !e.includes("jid") && !e.includes("Cannot read property 'fromMe' of undefined") && !e.includes("Cannot use 'in' operator to search for 'text' in undefined") && !e.includes("Cannot read property 'key' of undefined") && !e.includes("Cannot use 'in' operator to search for 'text' in undefined")) {
+      console.log("Message : %s", color(e, "yellow"));
+    }
 	}
 })
 }
