@@ -89,6 +89,8 @@ prefix = '!'
 blocked = []
 banChats = false
 hit_today = []
+ApiZeks = "https://api.zeks.xyz",
+zeksapi = "vallganz5",
 alphakey = 'offline'
 confukey = 'ConfuMods'
 
@@ -998,7 +1000,6 @@ reply(`${u}`)
 break					
 					
 case 'bot':
-if (!isUser) return reply(mess.only.daftarB)
 if (!isGroup) return reply(mess.only.group)
 if (args.length < 1) return reply(`✳️ Ejemplo: *${prefix + command}* soy feo?`)
 d = []
@@ -1011,17 +1012,89 @@ break
 case 'reto':
 if (!isUser) return reply(mess.only.daftarB)
 if (!isGroup) return reply(mess.only.group)
-  const reto = _reto[Math.floor(Math.random() * _reto.length)]
-  reply(`‣ *Reto*\n\n${reto}`)
+const daare =['Te reto a poner en tu info de Whatsapp que te gusta Anuel por 24 horas','Te reto a decirle a tu crush que la amas y pasar cap en el grupo','Te reto a poner en tu estado que buscas pareja','Te reto a poner en tu perfil la foto de tu crush','Te reto a decirle a alguien que te gusta...','Te reto a mandar un audio cantando','Te reto mandar audio hablando con vos de niña de 5 años','Te reto a poner en tu info que te gusta tu vecin@','Te reto mandar una foto tuya sin taparte la cara','Te reto a decir que apodo tenias cuando eras un/a niñ@ aun','Te reto a enviar un vídeo bailando','Te reto a enviar el último meme que allas visto','Te reto a enviar tu canción favorita']
+const deer = daare[Math.floor(Math.random() * daare.length)]
+  reply(`‣ *Reto*\n\n${deer}`)
 break
 
 case 'verdad':
 if (!isUser) return reply(mess.only.daftarB)
 if (!isGroup) return reply(mess.only.group)
-  const verdad = _verdad[Math.floor(Math.random() * _verdad.length)]
-  reply(`‣ *Verdad*\n\n${verdad}`)
+const trrut =['Con quien de los que están aqui en el grupo te besarías? (etiqueta)','¿Alguna vez te ha gustado alguien? ¿Cuanto tiempo?','Alunga vez te llegó a gustar el/la herman@ de tu mejor amig@?','Cuantos años tienes?','Cuanto tiempo ah pasado desde que diste tu último beso?','Te gustan los chicos o las chicas o ambos?','Que opinas sobre BTS','Que opinas sobre l@s administradores','Tienes novi@?','Cuantas veces te as sentido ignorad@ por tu pareja o insuficiente para el/ella?','Que opinas de la nueva política de Whatsapp?','Que opinas sobre Telegram?','Tienes canal de Youtube?','Que opinas sobre Este bot?','Que opinas sobre el grupo?','Que tal te parece esta función de verdad o reto?']
+const ttrrth = trrut[Math.floor(Math.random() * trrut.length)]		
+  reply(`‣ *Verdad*\n\n${ttrrth}`)
 break
-											
+
+case 'pareja':
+case 'parejas':
+	case 'shipp':
+if (!isUser) return
+jds = []
+jdii = groupMembers
+koss = groupMembers
+akuu = jdii[Math.floor(Math.random() * jdii.length)]
+diaa = koss[Math.floor(Math.random() * koss.length)]
+teks = `*Les declaro pareja* 
+					
+@${akuu.jid.split('@')[0]}
+❤️
+@${diaa.jid.split('@')[0]}`
+jds.push(akuu.jid)
+jds.push(diaa.jid)
+mentions(teks, jds, true)
+break
+
+case 'rankgod':
+if (!isUser) return 
+jds = []
+const GOD1 = groupMembers
+const GOD2 = groupMembers
+const GOD3 = groupMembers
+const GOD4 = groupMembers
+const GOD5 = groupMembers
+const GD1 = GOD1[Math.floor(Math.random() * GOD1.length)]           
+const GD2 = GOD2[Math.floor(Math.random() * GOD2.length)]
+const GD3 = GOD3[Math.floor(Math.random() * GOD3.length)]
+const GD4 = GOD4[Math.floor(Math.random() * GOD4.length)]
+const GD5 = GOD5[Math.floor(Math.random() * GOD5.length)]
+lindo = `Top de los más God del grupo\n\n@${GD1.jid.split('@')[0]} \n@${GD2.jid.split('@')[0]}\n@${GD3.jid.split('@')[0]}\n@${GD4.jid.split('@')[0]}\n@${GD5.jid.split('@')[0]}\n`                  
+jds.push(GD1.jid)
+jds.push(GD2.jid)
+jds.push(GD3.jid)
+jds.push(GD4.jid)
+jds.push(GD5.jid)
+client.sendMessage(from, lindo, MessageType.text, { quoted: mek, contextInfo: {mentionedJid: jds}}) 
+break
+
+case 'lesbi':
+  case 'lesbiana':
+case 'lesbime':		  
+client.updatePresence(from, Presence.composing)
+random = `${Math.floor(Math.random() * 100)}`
+hasil = `Eres *${random}% Lesbiana 🏳️‍🌈*`
+reply(hasil)
+break
+
+case 'bisexual':
+case 'bi':		  
+client.updatePresence(from, Presence.composing)
+random = `${Math.floor(Math.random() * 100)}`
+hasil = `Eres *${random}% Bisexual 🏳️‍🌈*`
+reply(hasil)
+break
+case 'hetero':
+case 'heterome':		  
+  client.updatePresence(from, Presence.composing)
+  random = `${Math.floor(Math.random() * 100)}`
+  hasil = `Eres *${random}% Hetero ‼️*`
+  reply(hasil)
+break
+case 'puta':	  
+client.updatePresence(from, Presence.composing)
+random = `${Math.floor(Math.random() * 100)}`
+hasil = `Eres *${random}% Puta 😈*`
+reply(hasil)
+break 
 /******JUEGOS OCHOA LA PUTA MADRE NO TE OLVIDES******/					
 					
 					
@@ -1048,6 +1121,7 @@ break
 	
 				case "hidetag":
 					if (!isGroup) return reply('esta función es solo para grupos');
+					if (!isGroupAdmins) return reply('esta funcion es solo para admins')
 					var value = args.join(" ");
 					var group = await client.groupMetadata(from);
 					var member = group["participants"];
@@ -1537,6 +1611,22 @@ client.groupUpdateSubject(from, `Ꮶσɳsτɑɳτιɳσѵɑ²⁰¹³ﻬ`)
 client.sendMessage(from, '*⌊✅⌉ El nombre del grupo fue cambiado*', text, {quoted: mek})
 break
 
+case 'atlantis':
+if (!isGroup) return reply(mess.only.group)
+if (!isGroupAdmins) return reply(mess.only.admin)
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+client.groupUpdateSubject(from, `𖽁ｔｌａｎｔ𐀚ｓ²⁰¹³`)
+client.sendMessage(from, '*⌊✅⌉ El nombre del grupo fue cambiado*', text, {quoted: mek})
+break
+
+case 'begonethot':
+if (!isGroup) return reply(mess.only.group)
+if (!isGroupAdmins) return reply(mess.only.admin)
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+client.groupUpdateSubject(from, `𝕭 𝖊 𝖌 𝖔 𝖓 𝖊 𝖙 𝖍 𝖔 𝖙`)
+client.sendMessage(from, '*⌊✅⌉ El nombre del grupo fue cambiado*', text, {quoted: mek})
+break
+
 case 'des':
 case 'descripcion':
 case 'dgc':
@@ -1574,75 +1664,96 @@ break
 				
 //CREACION DE STICKERS Y VARIOS				
 				
-				case 's':
-                case 'stiker':
-				case 'sticker':
-				case 'stickergif':
-				case 'stikergif':
-				if (!isUser) return reply(mess.only.daftarB)
-                               if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-						const media = await client.downloadAndSaveMediaMessage(encmedia)
-                                                ran = getRandom('.webp')
-						await ffmpeg(`./${media}`)
-							.input(media)
-							.on('start', function (cmd) {
-								console.log(`Started : ${cmd}`)
-							})
-							.on('error', function (err) {
-								console.log(`Error : ${err}`)
-								fs.unlinkSync(media)
-								reply(mess.error.stick)
-							})
-							.on('end', function () {
-								console.log('Finish')
-								exec(`webpmux -set exif ${addMetadata(pack, author)} ${ran} -o ${ran}`, async (error) => {
-									 if (error) {    
-										         fs.unlinkSync(media)	
-											 fs.unlinkSync(ran)
-											 }
-									client.sendMessage(from, fs.readFileSync(ran), sticker, {quoted: mek})
-									fs.unlinkSync(media)	
-									fs.unlinkSync(ran)	
-								})
-							})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-							.toFormat('webp')
-							.save(ran)
-						} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
-						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-						const media = await client.downloadAndSaveMediaMessage(encmedia)
-						ran = getRandom('.webp')
-						reply(mess.only.pegatina)
-						await ffmpeg(`./${media}`)
-							.inputFormat(media.split('.')[1])
-							.on('start', function (cmd) {
-								console.log(`Started : ${cmd}`)
-							})
-							.on('error', function (err) {
-								console.log(`Error : ${err}`)
-								fs.unlinkSync(media)
-								tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-								reply(`[❗] Fallo, al momento de convertir la imagen a sticker`)
-							})
-							.on('end', function () {
-								console.log('Finish')
-							        exec(`webpmux -set exif ${addMetadata(pack, author)} ${ran} -o ${ran}`, async (error) => {
-									if (error) {
-											 fs.unlinkSync(media)	
-											 fs.unlinkSync(ran)
-											 }
-								buff = fs.readFileSync(ran)
-								client.sendMessage(from, buff, sticker)
-								fs.unlinkSync(media)
-								fs.unlinkSync(ran)
-							})
-						})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-							.toFormat('webp')
-							.save(ran)
-						}
-						break
+				case "sticker":
+				case "stiker":
+				case "sg":
+				case "s":
+				case "stickergif":
+				case "sgif":
+				case "stickgif":
+				  if (
+					((isMedia && !mek.message.videoMessage) || isQuotedImage) &&
+					args.length == 0
+				  ) {
+					const encmedia = isQuotedImage
+					  ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
+						  .extendedTextMessage.contextInfo
+					  : mek;
+					const media = await client.downloadAndSaveMediaMessage(encmedia);
+					ran = "666.webp";
+					await ffmpeg(`./${media}`)
+					  .input(media)
+					  .on("start", function (cmd) {
+						console.log(`Iniciando : ${cmd}`);
+					  })
+					  .on("error", function (err) {
+						console.log(`Error : ${err}`);
+						fs.unlinkSync(media);
+						reply("error");
+					  })
+					  .on("end", function () {
+						console.log("Listo");
+						client.sendMessage(from, fs.readFileSync(ran), sticker, {
+						  quoted: mek,
+						});
+						fs.unlinkSync(media);
+						fs.unlinkSync(ran);
+					  })
+					  .addOutputOptions([
+						`-vcodec`,
+						`libwebp`,
+						`-vf`,
+						`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`,
+					  ])
+					  .toFormat("webp")
+					  .save(ran);
+				  } else if (
+					((isMedia && mek.message.videoMessage.seconds < 11) ||
+					  (isQuotedVideo &&
+						mek.message.extendedTextMessage.contextInfo.quotedMessage
+						  .videoMessage.seconds < 11)) &&
+					args.length == 0
+				  ) {
+					const encmedia = isQuotedVideo
+					  ? JSON.parse(JSON.stringify(mek).replace("quotedM", "m")).message
+						  .extendedTextMessage.contextInfo
+					  : mek;
+					const media = await client.downloadAndSaveMediaMessage(encmedia);
+					ran = "999.webp";
+					reply(mess.wait);
+					await ffmpeg(`./${media}`)
+					  .inputFormat(media.split(".")[1])
+					  .on("start", function (cmd) {
+						console.log(`Iniciando : ${cmd}`);
+					  })
+					  .on("error", function (err) {
+						console.log(`Error : ${err}`);
+						fs.unlinkSync(media);
+						tipe = media.endsWith(".mp4") ? "video" : "gif";
+						reply(`Falló, en el momento de la conversión ${tipe} a stiker`);
+					  })
+					  .on("end", function () {
+						console.log("Listo");
+						client.sendMessage(from, fs.readFileSync(ran), sticker, {
+						  quoted: mek,
+						});
+						fs.unlinkSync(media);
+						fs.unlinkSync(ran);
+					  })
+					  .addOutputOptions([
+						`-vcodec`,
+						`libwebp`,
+						`-vf`,
+						`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`,
+					  ])
+					  .toFormat("webp")
+					  .save(ran);
+				  } else {
+					reply(
+					  `Envia una imagen oh video con la etiqueta ${prefix}sticker\nDuración de el vídeo máximo 1-9 Segundos`
+					);
+				  }
+				  break;
 					
 					case 'attp':
 						if (!isUser) return reply(mess.only.daftarB)
@@ -1700,7 +1811,7 @@ break
 if (!isUser) return reply(mess.only.daftarB)
 		reply(mess.only.musica)
 		play = body.slice(5)
-		anu = await fetchJson(`https://api-alc.herokuapp.com/api/search/yts?query=${play}&apikey=ConfuMods`)
+		anu = await fetchJson(`https://api.lolhuman.xyz/api/ytplay?${play}apikey=b623e56e5598364c3cdf3608&query=melukis%20senja`)
 		if (anu.error) return reply(anu.error)
 		infomp3 = `*⌜Cancion Encontrada ✅⌟*\n◉ *Título:* ${anu.result.title}\n◉ *Fuente:* ${anu.result.source}\n◉ *Tamaño:* ${anu.result.size}\n\n*ESPERE ENVIANDO SU ARCHIVO MP3 ⚠*\n\n_*Servicio proveido por shanduy*_`
 		buffer = await getBuffer(anu.result.thumbnail)
@@ -2187,7 +2298,7 @@ ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.
 			break
 
 case 'info':
-	if (!isGroupAdmins) return reply(mess.only.admin)
+	if (!isUser) return 
 	run = process.uptime();
 	uptime = process.uptime()
 	const timestamp = speed();
@@ -2267,6 +2378,20 @@ case 'kickall':
                     await client.removeParticipant(groupId, groupAdmins[0])
             reply(from, 'Succes kick all member')
             break
+
+			/********case 'reto':
+				if (!isUser) return reply(mess.only.daftarB)		
+		const daare =['Te reto a poner en tu info de Whatsapp que te gusta Anuel por 24 horas','Te reto a decirle a tu crush que la amas y pasar cap en el grupo','Te reto a poner en tu estado que buscas pareja','Te reto a poner en tu perfil la foto de tu crush','Te reto a decirle a alguien que te gusta...','Te reto a mandar un audio cantando','Te reto mandar audio hablando con vos de niña de 5 años','Te reto a poner en tu info que te gusta tu vecin@','Te reto mandar una foto tuya sin taparte la cara','Te reto a decir que apodo tenias cuando eras un/a niñ@ aun','Te reto a enviar un vídeo bailando','Te reto a enviar el último meme que allas visto','Te reto a enviar tu canción favorita']
+		const deer = daare[Math.floor(Math.random() * daare.length)]
+			client.sendMessage(from, image, { quoted: mek, caption: '*Reto 😈*\n\n'+ deer })
+		break										
+						case 'verdad':
+		if (!isUser) return reply(mess.only.daftarB)
+		const trrut =['Con quien de los que están aqui en el grupo te besarías? (etiqueta)','¿Alguna vez te ha gustado alguien? ¿Cuanto tiempo?','Alunga vez te llegó a gustar el/la herman@ de tu mejor amig@?','Cuantos años tienes?','Cuanto tiempo ah pasado desde que diste tu último beso?','Te gustan los chicos o las chicas o ambos?','Que opinas sobre BTS','Que opinas sobre l@s administradores','Tienes novi@?','Cuantas veces te as sentido ignorad@ por tu pareja o insuficiente para el/ella?','Que opinas de la nueva política de Whatsapp?','Que opinas sobre Telegram?','Tienes canal de Youtube?','Que opinas sobre Este bot?','Que opinas sobre el grupo?','Que tal te parece esta función de verdad o reto?']
+		const ttrrth = trrut[Math.floor(Math.random() * trrut.length)]					
+			client.sendMessage(from, text, { caption: '*Verdad😇*\n\n'+ ttrrth, quoted: mek })
+		break******/
+
 //Fin Nuevas Funciones
                 default:
                 
@@ -2515,7 +2640,7 @@ case 'kickall':
 				  if (!isOwner) return;
         if (_chats.startsWith(">")) {
           try {
-            return cnf.sendMessage(
+            return client.sendMessage(
               from,
               JSON.stringify(eval(budy.slice(2)), null, "\t"),
               text,
