@@ -11,9 +11,6 @@ Conoce que tan gay eres
 ${prefix}cuties
 Prueba tu suerte en el medidor de fan de cuties 
 
-${prefix}ttt 
-Juega tictactoe con tus amigos, pregunta al creador como solucionar el error
-
 ${prefix}pendejo
 Conoce que tan pendejo eres
 
@@ -40,6 +37,27 @@ Bueno vamo a jugar
 
 ${prefix}reto
 Pide y cumple puta
+
+${prefix}pareja
+Mira con quien te conectas
+
+${prefix}rankgod
+Los mejores del grupo
+
+${prefix}lesbiana
+Mira y luego te sales
+
+${prefix}bisexual
+Asco de juego pero bue
+
+${prefix}hetero
+Aver si eres admin
+
+${prefix}puta
+Y de paso dame sentones
+
+${prefix}ttt
+Juega Tit Tac Toe 
 
 _*En futuras versiones colocare mas juegos :)*_
      

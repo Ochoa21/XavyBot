@@ -1,15 +1,17 @@
 {
-  "status": false,
-  "session": "201001195577-1372493822@g.us",
-  "turn": "X",
+  "status": true,
+  "session": "972524369307-1375948860@g.us",
+  "turn": "O",
   "X": "573146224366",
-  "O": "447700073770",
+  "O": "642796620000",
   "isWin": false,
   "winner": null,
-  "nine_push": [],
+  "nine_push": [
+    "❌"
+  ],
   "_matrix": [
     [
-      "1️⃣",
+      "❌",
       "2️⃣",
       "3️⃣"
     ],

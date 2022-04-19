@@ -89,11 +89,7 @@ prefix = '!'
 blocked = []
 banChats = false
 hit_today = []
-ApiZeks = "https://api.zeks.xyz",
-zeksapi = "vallganz5",
-alphakey = 'offline'
-confukey = 'ConfuMods'
-
+hit_today.push(prefix)
 /******CONFIGURACION DE CARGA******/
 const settingan = JSON.parse(fs.readFileSync('./admin/set.json'))
 const {
@@ -297,7 +293,7 @@ function kyun(seconds){
 				} catch {
 					ppimg = 'https://telegra.ph/file/34137f7a4c7412101de43.jpg'
 				}
-				teks = `Se fue un diota :D @${num.split('@')[0]}`
+				teks = `Se fue un pendejo, ojala lo violen :D @${num.split('@')[0]}`
 				 let buff = await getBuffer(ppimg)
 			client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -373,7 +369,7 @@ function kyun(seconds){
     			const apakah = ['Si','No']
                         const kapankah = ['Otro día','Otra semana','Otro mes','Otro año']
 			const botNumber = client.user.jid
-			const ownerNumber = ["33677884453@s.whatsapp.net"] // replace this with your number
+			const ownerNumber = ["573146224366@s.whatsapp.net"] // replace this with your number
 			const nomorOwner = [ownerNumber]
 	                const isGroup = from.endsWith('@g.us')
 			const totalchat = await client.chats.all();
@@ -413,7 +409,7 @@ function kyun(seconds){
 			const isOwner = ownerNumber.includes(sender)
                         const isUser = user.includes(sender)
                         const isLevelingOn = isGroup ? _leveling.includes(groupId) : false
-                        const NomerOwner = '33677884453@s.whatsapp.net'
+                        const NomerOwner = '573146224366@s.whatsapp.net'
                         const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
                         const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
 			
@@ -1804,21 +1800,8 @@ break
 		
 			
 	//SERVICIO DE MUSICA Y VIDEO 			
-				
-				
-	case 'play':   
-	if (args.length < 1) return reply('Donde esta el nombre de la canción?\n\nEjemplo: *play Industry Baby - Lil Nas X')
-if (!isUser) return reply(mess.only.daftarB)
-		reply(mess.only.musica)
-		play = body.slice(5)
-		anu = await fetchJson(`https://api.lolhuman.xyz/api/ytplay?${play}apikey=b623e56e5598364c3cdf3608&query=melukis%20senja`)
-		if (anu.error) return reply(anu.error)
-		infomp3 = `*⌜Cancion Encontrada ✅⌟*\n◉ *Título:* ${anu.result.title}\n◉ *Fuente:* ${anu.result.source}\n◉ *Tamaño:* ${anu.result.size}\n\n*ESPERE ENVIANDO SU ARCHIVO MP3 ⚠*\n\n_*Servicio proveido por shanduy*_`
-		buffer = await getBuffer(anu.result.thumbnail)
-		lagu = await getBuffer(anu.result.url_audio)
-		client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-		client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
-		break
+
+
 
 case 'play2':   
 	if (args.length < 1) return reply('Donde esta el nombre de la canción?\n\nEjemplo: !play2 Industry Baby - Lil Nas X')
@@ -2294,11 +2277,11 @@ ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.
 
 			case 'owner':
 			if (!isUser) return reply (mess.only.daftarB)
-			reply('wa.me/+33677884453')
-			break
+			reply('wa.me/+573146224366')
+			break 
 
 case 'info':
-	if (!isUser) return 
+	if (!isUser) return reply (mess.only.daftarB)
 	run = process.uptime();
 	uptime = process.uptime()
 	const timestamp = speed();
@@ -2368,29 +2351,6 @@ reply(`Sesión eliminada con éxito en este grupo!`);
 reply(`No hay sesión en curso.`);
 }
 break
-
-case 'pumpum':
-case 'kickall':
-            if (!isOwner) return reply(from, 'Perintah ini hanya bisa di gunakan dalam group!')
-            if (!isGroup) return reply(from, 'Perintah ini hanya bisa di gunakan oleh Owner group')
-            if (!isBotGroupAdmins) return reply(from, 'Perintah ini hanya bisa di gunakan ketika bot menjadi admin')
-            console.log('Upss this is Admin group')
-                    await client.removeParticipant(groupId, groupAdmins[0])
-            reply(from, 'Succes kick all member')
-            break
-
-			/********case 'reto':
-				if (!isUser) return reply(mess.only.daftarB)		
-		const daare =['Te reto a poner en tu info de Whatsapp que te gusta Anuel por 24 horas','Te reto a decirle a tu crush que la amas y pasar cap en el grupo','Te reto a poner en tu estado que buscas pareja','Te reto a poner en tu perfil la foto de tu crush','Te reto a decirle a alguien que te gusta...','Te reto a mandar un audio cantando','Te reto mandar audio hablando con vos de niña de 5 años','Te reto a poner en tu info que te gusta tu vecin@','Te reto mandar una foto tuya sin taparte la cara','Te reto a decir que apodo tenias cuando eras un/a niñ@ aun','Te reto a enviar un vídeo bailando','Te reto a enviar el último meme que allas visto','Te reto a enviar tu canción favorita']
-		const deer = daare[Math.floor(Math.random() * daare.length)]
-			client.sendMessage(from, image, { quoted: mek, caption: '*Reto 😈*\n\n'+ deer })
-		break										
-						case 'verdad':
-		if (!isUser) return reply(mess.only.daftarB)
-		const trrut =['Con quien de los que están aqui en el grupo te besarías? (etiqueta)','¿Alguna vez te ha gustado alguien? ¿Cuanto tiempo?','Alunga vez te llegó a gustar el/la herman@ de tu mejor amig@?','Cuantos años tienes?','Cuanto tiempo ah pasado desde que diste tu último beso?','Te gustan los chicos o las chicas o ambos?','Que opinas sobre BTS','Que opinas sobre l@s administradores','Tienes novi@?','Cuantas veces te as sentido ignorad@ por tu pareja o insuficiente para el/ella?','Que opinas de la nueva política de Whatsapp?','Que opinas sobre Telegram?','Tienes canal de Youtube?','Que opinas sobre Este bot?','Que opinas sobre el grupo?','Que tal te parece esta función de verdad o reto?']
-		const ttrrth = trrut[Math.floor(Math.random() * trrut.length)]					
-			client.sendMessage(from, text, { caption: '*Verdad😇*\n\n'+ ttrrth, quoted: mek })
-		break******/
 
 //Fin Nuevas Funciones
                 default:
