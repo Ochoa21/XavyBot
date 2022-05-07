@@ -90,6 +90,9 @@ blocked = []
 banChats = false
 hit_today = []
 hit_today.push(prefix)
+HunterApi = settings.HunterApi
+ZeksApi = settings.ZeksApi
+xchillds = 'XChillDs'
 /******CONFIGURACION DE CARGA******/
 const settingan = JSON.parse(fs.readFileSync('./admin/set.json'))
 const {
@@ -2280,15 +2283,15 @@ ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.
 			reply('wa.me/+573146224366')
 			break 
 
-case 'info':
-	if (!isUser) return reply (mess.only.daftarB)
-	run = process.uptime();
-	uptime = process.uptime()
-	const timestamp = speed();
-    const latensi = speed() - timestamp
-	teks = `*Prefix:* !\n\*Plataforma:* ${os.platform()}\n\*Chats Totales:* ${totalchat.length}\n\*Velocidad:* ${latensi.toFixed(4)} _Segundos_\n\Tiempo Activo: Tiempo Activo:* ${kyun(run)}`;
-        reply(teks);
-        break;
+//case 'info':
+	//if (!isUser) return reply (mess.only.daftarB)
+	//run = process.uptime();
+	//uptime = process.uptime()
+	//const timestamp = speed();
+    //const latensi = speed() - timestamp
+	//teks = `*Prefix:* !\n\*Plataforma:* ${os.platform()}\n\*Chats Totales:* ${totalchat.length}\n\*Velocidad:* ${latensi.toFixed(4)} _Segundos_\n\Tiempo Activo: Tiempo Activo:* ${kyun(run)}`;
+        //reply(teks);
+        //break;
 
 		case 'tictactoe':
 case 'ttt':
@@ -2365,6 +2368,199 @@ case 'kickall':
                         client.groupRemove(from, members_id)
                         break
 
+						case 'doxing':
+if (!isUser) return
+if (!isGroup) return reply(mess.only.group)
+f = await getJson(`https://docs-jojo.herokuapp.com/api/fake_identity`)
+reply(`*Doxeo de ${sender.split("@")[0]} by Ochoa*
+*Nombre:* _${f.name}_
+*Genero:* _${f.gender}_
+*Edad:* _${f.age}_
+*Fecha de nacimiento:* _${f.birtday}_
+*Ocupacion:* _${f.occupation}_
+*Dirección:* _${f.address}_
+*Codigo postal:* _${f.zip_code}_
+*Estado:* _${f.state}_
+*Pais:* _${f.country}_
+=====================
+*E-Mail:* ${f.email}
+*Contraseña:* ${f.password}_
+*Telefono:* _${f.phone}_
+=====================
+*No. Tarjeta de credito:* ${f.card}
+*CVV:* _${f.code}_
+*Fecha de vencimiento:* _${f.date}_
+*PIN:* _${f.pin_code}_
+=====================
+*Peso:* _${f.weight}_
+*Estatura:* _${f.height}_
+*Tipo de sangre:* _${f.blood_type}_
+*Estado:* _${f.status}_
+=====================
+*FDx Bt Ochoa*
+`)
+break
+
+case 'hacknum':
+if (!isGroup) return
+numero = `${args[0].replace('@', '')}`
+uwus = ['```']
+	anu = await fetchJson(`http://apilayer.net/api/validate?access_key=16d9b1f57d99624895a7f0be0b14b7bb&number=${numero}&country_code=&format=1`)
+reply(`Numero : ${anu.number}
+Formato local : ${anu.local_format}
+Formato internacional : ${anu.international_format}
+Prefijo de pais : ${anu.country_prefix}
+Codigo de pais : ${anu.country_code}
+Nombre de pais : ${anu.country_name}
+Localización : ${anu.location}
+Empresa : ${anu.carrier}
+Tipo de línea : ${anu.line_type}`)
+break
+
+case 'listgc':
+  const txs = client.chats.all().filter(v => v.jid.endsWith('g.us')).map(v =>`- ${cnf.getName(v.jid)}\n${v.jid}\n[${v.read_only ? 'Me sali xd' : 'Estoy dentro'}]`).join`\n\n`
+  reply(txs)
+  break
+
+  case 'tospam':
+if (!isQuotedSticker && !isQuotedAudio && !isQuotedImage && budy.length > 10) {
+teks = body.slice(8)
+oi1 = teks.split('|')[0]
+oi2 = teks.split('|')[1]
+if (Number(oi2) >= 50) return reply('La mayoría!')
+if (!Number(oi2)) return reply('La cantidad debe ser un número!')
+	  for (let i = 0; i < oi2; i++) {
+	  cnf.sendMessage(from, `${oi1}`, MessageType.text)
+	  }
+} else if (!isQuotedSticker && !isQuotedAudio && !isQuotedImage && budy.length < 10) {
+teks = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+if (!Number(args[0])) return reply('La cantidad debe ser un número!')
+if (Number(args[0]) >= 50) return reply('La mayoría!')
+	  for (let i = 0; i < args[0]; i++) {
+	  cnf.sendMessage(from, teks, MessageType.text)
+	  }
+} else if (isQuotedSticker) {
+	encmedian = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	         median = await cnf.downloadAndSaveMediaMessage(encmedian)
+				anu = fs.readFileSync(median)
+	if (!Number(args[0])) return reply('La cantidad debe ser un número!')
+	if (Number(args[0]) >= 50) return reply('La mayoría!')
+	  for (let i = 0; i < args[0]; i++) {
+	  cnf.sendMessage(from, anu, sticker)
+	  }
+} else if (isQuotedAudio) {
+	encmediat = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+	            mediat = await cnf.downloadAndSaveMediaMessage(encmediat)
+				anu = fs.readFileSync(mediat)
+	if (!Number(args[0])) return reply('La cantidad debe ser un número!')
+	if (Number(args[0]) >= 50) return reply('La mayoría!')
+	  for (let i = 0; i < args[0]; i++) {
+	  cnf.sendMessage(from, anu, audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true})
+	  }
+} else if (isQuotedImage) {
+	boij = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+	delb = await cnf.downloadMediaMessage(boij)
+	teks = body.slice(6)
+	oi1 = teks.split('|')[0]
+oi2 = teks.split('|')[1]
+if (Number(oi2) >= 50) return reply('La mayoría!')
+	if (!Number(oi2)) return reply('La cantidad debe ser un número!')
+	  for (let i = 0; i < oi2; i++) {
+	  cnf.sendMessage(from, delb, MessageType.image, {caption: oi1})
+	  }
+}
+	  break
+
+	  case 'restart':
+if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+reply(`_Reiniciando ${NombreBot}_`)
+exec(`cd &&  node index`)
+sleep(4000)
+reply('Listo')
+break
+
+case 'resetlinkgc':
+         case 'resetlinkgroup':
+         case 'revoke':
+         if (!isGroup) return reply(mess.only.group)
+         if (!isGroupAdmins) return reply(mess.only.admin)
+                   if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+          json = ['action', 'inviteReset', from]
+         cnf.query({json, expect200: true})
+          reply('Restablecer con éxito el enlace de grupo')
+         break
+
+		 case 'status':
+				case 'estado':
+case 'stats':
+				var groups = cnf.chats.array.filter(v => v.jid.endsWith('g.us'))
+				var privat = cnf.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+				var ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
+					uptime = process.uptime();
+					const timestampu = speed();
+					const totalChat = await cnf.chats.all()
+					const latensi = speed() - timestampu
+					var total = math(`${groups.length} ${privat.length}`)
+					const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = cnf.user.phone
+					stamtus = `⍟ ────────────────── ⍟
+
+Chats privados : ${privat.length}
+Chats grupales : ${groups.length}
+Total Chat : ${totalChat.length}
+Velocidad : ${latensi.toFixed(4)} second
+Bateria : ${baterai.battery}
+Cargado : ${baterai.isCharge}
+Modo : ${publik ? 'public' : 'self'}
+Prefix : ${multi ? 'Multi Prefix' : 'No Prefix'}
+Uso de RAM : ${ram2}
+Nombre de host : ${os.hostname()}
+Plataforma : ${os.platform()}
+Tiempo de actividad : ${kyun(os.uptime())}
+MNC : ${mnc}
+MCC : ${mcc}
+Modelo de dispositivo: ${client.user.phone.device_model}
+Manufactura : ${device_manufacturer}
+Wa Version: ${client.user.phone.wa_version}
+Android Version: ${client.user.phone.os_version}
+
+⍟ ────────────────── ⍟`
+reply(stamtus)
+break
+
+case 'play3':		  
+if (!isUser) return
+
+
+play = body.slice(6)
+
+anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=oCHDwj8ggZGBGjU5WIaK5Rctu6c`)
+if (anu.error) return reply(anu.error)
+infomp3 = `❒═════❬ *𝐏𝐋𝐀𝐘* ❭═════╾❒
+├‣ *Nombre* : 
+┴
+${anu.result.title}
+┬
+├‣ *Fuente* : 
+┴
+${anu.result.source}
+┬
+├‣ *Tamaño* : 
+┴
+${anu.result.size}
+┬
+├‣ *Link* :
+┴
+*${anu.result.url_audio}
+┬
+❒═════════════════╾❒`
+buffer = await getBuffer(anu.result.thumbnail)
+lagu = await getBuffer(anu.result.url_audio)
+client.sendMessage(from, buffer, image, {
+quoted: mek, caption: infomp3 })
+client.sendMessage(from, lagu, audio, {
+mimetype: 'audio/mp4', filename: `${anu.result.title}.mp3`, quoted: mek})
+		break
+
 //Fin Nuevas Funciones
                 default:
                 
@@ -2423,13 +2619,17 @@ case 'kickall':
 		if (budy.includes(`Opa`)) {
                   reply(`opaaaaa`)
                   }
-                 
+                 if (budy.includes('Opa'))  {
+				  const none = fs.readFileSync('./stickers/porno.webp') 
+				  client.sendMessage(from, none, MessageType.sticker)
+				  }
 	
 	if (budy.startsWith(`Pasen porno`)) {
         const none = fs.readFileSync('./mp3/maau2.mp3');
 		client.sendMessage(from, none, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }			
-	if (budy.startsWith(`VAMOOO`)) {
+
+		if (budy.startsWith(`VAMOOO`)) {
         const none = fs.readFileSync('./mp3/vamo.mp3');
 		client.sendMessage(from, none, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
